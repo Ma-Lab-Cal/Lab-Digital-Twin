@@ -750,28 +750,28 @@ window.onload = function() {
  */
 
 function labsw() {
-    var labSelector = document.getElementById('labslct');
+    var labSelector = document.getElementById("labslct");
     var labChoice = labSelector.options[labSelector.selectedIndex].value;
-    var labName = document.getElementById('labName');
+    var labName = document.getElementById("labName");
     labName.innerHTML = labChoice;
     switch (labChoice) {
         case "Main Lab":
-            changeImage("/static/img/Plan 00.png");
+            changeImage("img/Plan 00.png");
             break;
         case "All Labs":
-            changeImage("/static/img/Plan 00.png");
+            changeImage("img/Plan 00.png");
             break;
         case "Pre Lab":
-            changeImage("/static/img/Plan 01.png");
+            changeImage("img/Plan 01.png");
             break;
         case "Office":
-            changeImage("/static/img/Plan 01.png");
+            changeImage("img/Plan 01.png");
             break;
     }
 }
 
 function newLocationE() {
-    var locSelector = document.getElementById('uriInfo');
+    var locSelector = document.getElementById("uriInfo");
     var locChoice = locSelector.options[locSelector.selectedIndex].value;
     if (locChoice == "new") {
 		// TODO: add the logic of adding new location
@@ -781,7 +781,7 @@ function newLocationE() {
 }
 
 function newLocationA() {
-    var locSelector = document.getElementById('adduri');
+    var locSelector = document.getElementById("adduri");
     var locChoice = locSelector.options[locSelector.selectedIndex].value;
     if (locChoice == "new") {
 		// TODO: add the logic of adding new location
@@ -791,7 +791,7 @@ function newLocationA() {
 }
 
 function newUser() {
-    var usrSelector = document.getElementById('userEnter');
+    var usrSelector = document.getElementById("userEnter");
     var usrChoice = usrSelector.options[usrSelector.selectedIndex].value;
     if (usrChoice == "new") {
 		// TODO: add the logic of adding new user

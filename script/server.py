@@ -68,7 +68,10 @@ class DataBase:
         return processed_data
         '''
         cur = self._db.cursor()
-        cur.execute("""SELECT * FROM EnvironmentalData WHERE timestamp BETWEEN {start_time} AND {end_time};""".format(start_time=start_time, end_time=end_time))
+        try:
+            cur.execute("""SELECT * FROM EnvironmentalData WHERE timestamp BETWEEN {start_time} AND {end_time};""".format(start_time=start_time, end_time=end_time))
+        except KeyError:
+            return []
         data = cur.fetchall()
         return data
 

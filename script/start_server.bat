@@ -1,1 +1,1 @@
-py C:\Users\ma-la\Documents\Digital-Twin-Inventory-System\scripts\server.py
+py C:\Users\ma-la\Desktop\Lab-Digital-Twin\script\server.py
