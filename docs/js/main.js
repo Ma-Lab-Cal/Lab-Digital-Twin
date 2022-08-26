@@ -471,10 +471,13 @@ async function handleAuthClick(){
 function appendValue() {
 	var params = {
 		spreadsheetId: '1Lsk2p7Jz0Ul2nC2Y4gxID0TZXlIJPO0zi0HwbjfiDKo',
-		range: 'PublicStorage!A1:J',
+		range: 'PublicStorage!A' + addsku + ':J' + addsku,
 		valueInputOption: 'RAW',
 		insertDataOption: 'INSERT_ROWS'
 	};
+
+	console.log(addname);
+
 	var valueRangeBody = {
 		"values": [[addsku, addname, adduri, "", addqty, addtag, "", adddes, "", ""]]
 	};
