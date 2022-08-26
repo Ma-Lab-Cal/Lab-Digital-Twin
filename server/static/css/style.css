@@ -1,0 +1,935 @@
+/*Global*/
+body{
+  background-color: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.5em;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: red;
+}
+
+a:hover{
+  color: blue;
+}
+
+a:active{
+  color: orange;
+}
+
+h1{
+  font-size: 30px;
+}
+
+select{
+  background-color: powderblue;
+  font-size: 20px;
+  border: transparent;
+}
+
+option{
+  background-color: dodgerblue;
+  font-size: 20px;
+  color: gold;
+}
+
+.lablink{
+  position: relative;
+  bottom: 90%;
+  left: 95%;
+}
+/*Global*/
+
+
+
+/* Buttons */
+button{
+  height: 100%;
+  width: 75%;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover{
+  background: lightcyan;
+}
+
+button:active{
+  background: aquamarine;
+}
+/* Buttons */
+
+
+
+/*Head & Foot*/
+header{
+  padding-top: 20px;
+  height: 0px;
+}
+
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 0px;
+}
+
+#footerControl{
+  position: relative;
+  min-height: 100vh;
+}
+
+#footerHelp{
+  padding-bottom: 40px;
+}
+/*Head & Foot*/
+
+
+
+/*Columns*/
+.row{
+  width: 95vw;
+  margin: auto;
+  overflow: hidden;
+}
+
+.row:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column#flrPlan{
+  display: inline-block;
+  float: left;
+  width: 30vw;
+}
+
+.column#eqpList{
+  margin-left: -2%;
+  display: inline-block;
+  float: left;
+  width: 30vw;
+}
+
+.column#envPlot{
+  display: inline-block;
+  float: right;
+  width: 30vw;
+}
+
+@media(max-width:1200px){
+  .column#flrPlan{
+    width: 35vw;
+  }
+
+  .column#eqpList{
+    width: 30vw;
+  }
+
+  .column#envPlot{
+    width: 20vw;
+  }
+}
+
+@media(max-width:600px){
+  .column#flrPlan{
+    width: 35vw;
+  }
+
+  .column#eqpList{
+    width: 25vw;
+  }
+
+  .column#envPlot{
+    width: 20vw;
+  }
+}
+
+.desys{
+  width: 95%;
+  margin: auto;
+  margin-left: 0px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.decol{
+  display: inline-block;
+  float: left;
+  width: 15%;
+}
+
+.amsys{
+  width: 95%;
+  margin: auto;
+  margin-left: 0;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.amcol{
+  display: inline-block;
+  float: left;
+  width: 15%;
+}
+
+.amcol2{
+  display: inline-block;
+  float: left;
+  width: 7.5%;
+  text-align: left;
+  margin-left: 2%;
+}
+
+.amcol3{
+  display: inline-block;
+  float: left;
+  width: 7.5%;
+  text-align: left;
+  margin-left: 0%;
+}
+
+.amcol4{
+  display: inline-block;
+  float: left;
+  width: 10%;
+  margin-right: 3%;
+}
+/*Columns*/
+
+
+
+/*Scrollbar*/
+.dropDownList{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: midnightblue;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: midnightblue;
+  max-height: 40vh;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  display: none;
+}
+
+.dropDownList::-webkit-scrollbar {
+  width: 10px;
+  display: initial;
+}
+
+::-webkit-scrollbar-track{
+  background-color: lightslategray;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: darkslategray;
+  border-radius: 5px;
+  border: 2.5px solid slategray;
+}
+/*Scrollbar*/
+
+
+
+/*Search Bar*/
+input[type=search]{
+  height: 30px;
+  width: 84%;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: gainsboro;
+}
+
+button.search{
+  height: 30px;
+  width: 15%;
+  float: right;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+button.search:hover{
+  background: lightgrey;
+}
+
+button.search:active{
+  background: lightblue;
+}
+
+.highlight{
+  font-weight: bold;
+  color: magenta;
+}
+
+.search-result{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: midnightblue;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.search-result:hover{
+  background: mintcream;
+}
+
+.search-selected{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: midnightblue;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  cursor: pointer;
+  background: yellow;
+}
+
+.search-selected:hover{
+  background: LemonChiffon;
+}
+/*Search Bar*/
+
+
+
+/*Floor Plan*/
+button.back{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 25%;
+  margin-right: 75%;
+  float: left;
+  padding: 5px;
+  margin-left: 5%;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.back:hover{
+  background: khaki;
+}
+
+button.back:active{
+  background: yellow;
+}
+
+#flrPlan{
+  padding: 10px;
+}
+
+.image{
+  width: 45%;
+  height: auto;
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.map{
+  width: 90%;
+  height: auto;
+}
+
+.user{
+  display: block;
+  width: 10%;
+  height: auto;
+  margin-left: 5%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+#labslct{
+  margin-bottom: 10px;
+}
+
+#labslcttag{
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+#usrslct{
+  margin-bottom: 10px;
+}
+
+#usrslcttag{
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5%;
+}
+/*Floor Plan*/
+
+
+/*Canvas*/
+#myCanvas{
+  position: absolute;
+  top: 10vh;
+  left: 3vw;
+}
+/*Canvas*/
+
+
+
+/*Equipment List*/
+.piece{
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#eqpList{
+  padding: 10px;
+}
+
+#eqpList h1{
+  text-align: left;
+}
+
+#eqpList a{
+  color: black;
+}
+
+#eqpList a:hover{
+  color: blue;
+}
+
+#eqpList a:active{
+  color: orange;
+}
+
+#eqpList a.md{
+  text-decoration: underline;
+  color: blue;
+}
+
+#eqpList a.md:hover{
+  color: orange;
+}
+
+#eqpList a.md:active{
+  color: lime;
+}
+
+#eqpList ul{
+  width: 100%;
+  display: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+#eqpList ul.dropDownList{
+  display: block;
+  background-color: #4c5f7a;
+}
+
+#eqpList li{
+  padding: 5px 0px;
+  width: 100%;
+  float: left;
+  clear: left;
+  display: inline;
+  position: relative;
+  list-style: none;
+}
+
+#eqpList ul.subList{
+  background-color: #393e6f;
+  position: relative;
+  left: 0;
+  top: 100%;
+  display: none;
+}
+
+#eqpList ul.subsubList{
+  background-color: #3d2e4f;
+  position: relative;
+  left: 0;
+  top: 100%;
+  display: none;
+}
+
+button.add{
+  position: absolute;
+  height: 30px;
+  width: 100px;
+  padding: 5px;
+  margin-top: 10px;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.add:hover{
+  background: lavender;
+}
+
+button.add:active{
+  background: plum;
+}
+
+button.clkdadd{
+  position: absolute;
+  height: 30px;
+  width: 100px;
+  float: left;
+  padding: 5px;
+  margin-top: 10px;
+  background: red;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.clkdadd:hover{
+  background: salmon;
+}
+
+button.clkdadd:active{
+  background: plum;
+}
+
+button.edit{
+  position: absolute;
+  height: 30px;
+  width: 100px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 125px;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.edit:hover{
+  background: antiquewhite;
+}
+
+button.edit:active{
+  background: orange;
+}
+
+button.clkdedit{
+  position: absolute;
+  height: 30px;
+  width: 100px;
+  float: left;
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 125px;
+  background: red;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.clkdedit:hover{
+  background: salmon;
+}
+
+button.clkdedit:active{
+  background: orange;
+}
+
+#addInfo{
+  display: block;
+  padding-left: 20px;
+  padding-right: 30px;
+  background: whitesmoke;
+}
+
+#addInfo label{
+  display: block;
+  padding-bottom: 5px;
+}
+
+form#addInfo{
+  position: relative;
+  margin-top: 50px;
+}
+
+input[type=text]{
+    height: 20px;
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none
+}
+
+textarea{
+    height: 60px;
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none
+}
+
+button.submit{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 25%;
+  padding: 5px;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.submit:hover{
+  background: palegreen;
+}
+
+button.submit:active{
+  background: lime;
+}
+
+button.delete{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 25%;
+  padding: 5px;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.delete:hover{
+  background: red;
+}
+
+button.delete:active{
+  background: maroon;
+}
+
+#editInfo{
+  padding-top: 10px;
+  display: block;
+  padding-left: 20px;
+  padding-right: 30px;
+  background: whitesmoke;
+}
+
+#editInfo label{
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+form#editInfo{
+  position: relative;
+  margin-top: 50px;
+}
+
+#addInfo{
+  padding-top: 10px;
+  display: block;
+  padding-left: 20px;
+  padding-right: 30px;
+  background: whitesmoke;
+}
+
+#addInfo label{
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+form#addInfo{
+  position: relative;
+  margin-top: 50px;
+}
+
+#eqpInfo{
+  padding-top: 10px;
+  display: block;
+  padding-left: 20px;
+  padding-right: 30px;
+  background: whitesmoke;
+}
+
+#eqpInfo label{
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+form#eqpInfo{
+  position: relative;
+  margin-top: 50px;
+}
+
+#locA{
+  margin-right: 5px;
+}
+
+#locE{
+  margin-right: 5px;
+}
+
+#takeAM{
+  width: 75%;
+}
+
+#returnAM{
+  width: 75%;
+}
+
+#moveAM{
+  width: 75%;
+}
+
+#moveFROM{
+  width: 75%;
+}
+
+#moveTO{
+  width: 75%;
+  margin-left: -20%;
+}
+/*Equipment List*/
+
+
+
+/*Environmental Plot*/
+#envPlot{
+  padding: 10px;
+}
+
+#envTitle{
+  margin-left: -10%;
+}
+
+.plots{
+  margin-top: 10px;
+  display: inline-block;
+  width: 100%;
+  margin-left: -15%;
+}
+
+button.history{
+  margin-top: 5px;
+  margin-right: 40%;
+  height: 30px;
+  width: 25%;
+  float: left;
+  padding: 5px;
+  margin-left: -10%;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.history:hover{
+  background: powderblue;
+}
+
+button.history:active{
+  background: aqua;
+}
+
+button.clkdhistory{
+  margin-top: 5px;
+  margin-right: 40%;
+  height: 30px;
+  width: 25%;
+  float: left;
+  padding: 5px;
+  margin-left: -10%;
+  color: white;
+  background: red;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button.clkdhistory:hover{
+  background: salmon;
+}
+
+button.clkdhistory:active{
+  background: aqua;
+}
+
+#plotFunc{
+  display: block;
+  padding-left: 20px;
+  padding-right: 30px;
+  background: whitesmoke;
+  margin-left: -10%;
+}
+
+#plotFunc label{
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+form#plotFunc{
+  position: relative;
+  margin-top: 50px;
+}
+
+#End {
+  font-size: 20px;
+  margin-right: 1%;
+}
+
+button#submit{
+  display: inline-block;
+  margin-left: 1%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 30px;
+  width: 25%;
+  padding: 5px;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button#submit:hover{
+  background: palegreen;
+}
+
+button#submit:active{
+  background: lime;
+}
+
+button#download{
+  display: inline-block;
+  margin-left: 1%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 30px;
+  width: 30%;
+  padding: 5px;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button#download:hover{
+  background: pink;
+}
+
+button#download:active{
+  background: deeppink;
+}
+
+button.intv{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 20%;
+  padding: 5px;
+  background: beige;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.5%;
+  margin-right: 1%;
+}
+
+button.intv:hover{
+  background: orange;
+}
+
+button.intv:active{
+  background: orangered;
+}
+
+button.clkdintv{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 20%;
+  padding: 5px;
+  background: tomato;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.5%;
+  margin-right: 1%;
+}
+
+button.clkdintv:hover{
+  background: orange;
+}
+
+button.clkdintv:active{
+  background: orangered;
+}
+
+button#btn5m{
+margin-left: -9.5%;
+}
+/*Environmental Plot*/
+
+
+
+/*Circle*/
+.circle {
+  font-size: 10px;
+  color: blue;
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+/*Circle*/
+
+
+
+
+
+
+
+
+
+.urap-loader {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 3000px;
+  top: 1000px;
+  z-index:12;
+  border: 16px solid lavender;
+  border-top: 16px solid thistle;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: urap-spin 0.5s linear infinite;
+}
+
+@keyframes urap-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

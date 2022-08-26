@@ -1,0 +1,9 @@
+rath	DATA_TYPE
+SHT35	DATA_TYPE
+
+init	RESERVED_WORD
+disableHeater	RESERVED_WORD
+enableHeater	RESERVED_WORD
+getTemperature	RESERVED_WORD
+getTemperatureK	RESERVED_WORD
+getHumidity	RESERVED_WORD
