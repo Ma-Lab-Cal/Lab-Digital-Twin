@@ -116,8 +116,11 @@ function clearPoint(){
 
 
 // Equipment List
-const CLIENT_ID = "968225988580-1r4j1b3ooh2s6vn6k41gac4a4idbjkrn.apps.googleusercontent.com";
-const API_KEY = "AIzaSyDyXKIvKG94DNfUX9JRPJJ9U6RG0EwIEsI";
+
+const CLIENT_ID = "113940771131-qrvgafv90302f6el02p6d5ksd2f01aqf.apps.googleusercontent.com";
+const API_KEY = "AIzaSyAxO1CzWhC7rvWl-xIgSXOzDxG-qbElc38";
+// const CLIENT_ID = "968225988580-1r4j1b3ooh2s6vn6k41gac4a4idbjkrn.apps.googleusercontent.com";
+// const API_KEY = "AIzaSyDyXKIvKG94DNfUX9JRPJJ9U6RG0EwIEsI";
 const DISCOVERY_DOC = "https://sheets.googleapis.com/$discovery/rest?version=v4"; // Discovery doc URL for APIs used by the quickstart 
 var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly"; // Authorization scopes required by the API: multiple scopes can be included, separated by spaces
 var tokenClient;
