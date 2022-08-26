@@ -22,6 +22,7 @@
       // TODO(developer): Set to client ID and API key from the Developer Console
       const CLIENT_ID = "113940771131-qrvgafv90302f6el02p6d5ksd2f01aqf.apps.googleusercontent.com";
       const API_KEY = "AIzaSyAxO1CzWhC7rvWl-xIgSXOzDxG-qbElc38";
+      
 
       // Discovery doc URL for APIs used by the quickstart
       const DISCOVERY_DOC = "https://sheets.googleapis.com/$discovery/rest?version=v4";
@@ -66,21 +67,21 @@
         if (!gapi.client) return
         console.log(gapi.client.getToken())
           await listInventory();
-        // tokenClient.callback = async (resp) => {
-        //   if (resp.error !== undefined) {
-        //     throw (resp);
-        //   }
-        //   await listMajors();
-        // };
-        // if (gapi.client.getToken() === null) {
-        //   // Prompt the user to select a Google Account and ask for consent to share their data
-        //   // when establishing a new session.
-        //   tokenClient.requestAccessToken({prompt: "consent"});
-        // } else {
+        tokenClient.callback = async (resp) => {
+          if (resp.error !== undefined) {
+            throw (resp);
+          }
+          await listMajors();
+        };
+        if (gapi.client.getToken() === null) {
+          // Prompt the user to select a Google Account and ask for consent to share their data
+          // when establishing a new session.
+          tokenClient.requestAccessToken({prompt: "consent"});
+        } else {
           
-        //   // Skip display of account chooser and consent dialog for an existing session.
-        //   tokenClient.requestAccessToken({prompt: ""});
-        // }
+          // Skip display of account chooser and consent dialog for an existing session.
+          tokenClient.requestAccessToken({prompt: ""});
+        }
       }
 
       /**

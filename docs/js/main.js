@@ -119,10 +119,8 @@ function clearPoint(){
 
 const CLIENT_ID = "113940771131-qrvgafv90302f6el02p6d5ksd2f01aqf.apps.googleusercontent.com";
 const API_KEY = "AIzaSyAxO1CzWhC7rvWl-xIgSXOzDxG-qbElc38";
-// const CLIENT_ID = "968225988580-1r4j1b3ooh2s6vn6k41gac4a4idbjkrn.apps.googleusercontent.com";
-// const API_KEY = "AIzaSyDyXKIvKG94DNfUX9JRPJJ9U6RG0EwIEsI";
 const DISCOVERY_DOC = "https://sheets.googleapis.com/$discovery/rest?version=v4"; // Discovery doc URL for APIs used by the quickstart 
-var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly"; // Authorization scopes required by the API: multiple scopes can be included, separated by spaces
+var SCOPES = "https://www.googleapis.com/auth/spreadsheets"; // Authorization scopes required by the API: multiple scopes can be included, separated by spaces
 var tokenClient;
 
 // Callback after api.js is loaded
@@ -149,6 +147,7 @@ if (!gapi.client) return
 	await printList();
 });
 
+var entries = new Map([]);
 var output = [];
 var values = [];
 var outmap = new Map([]);
@@ -174,6 +173,9 @@ async function printList() {
 	values = output[0];
 	for (let i in output) {
 		if (i != 0) {
+			if (output[i].length == 0){
+				continue;
+			}
 			let row = output[i];
 			outmap.set(row[values.indexOf('SKU')], row);
 			entries.set(row[values.indexOf('SKU')], row[values.indexOf('Name')].toLowerCase());
@@ -240,7 +242,6 @@ function dropDown(a) {
 
 // Search Engine
 const word_mapping = [["Ø", "phi"], ["µm", "um"], ["°", "deg"]];
-var entries = new Map([]);
 
 function onSearchHandler(e) {
 	clearPoint();
@@ -298,6 +299,7 @@ function addEqp() {
         add.classList.add("clkdadd");
         eqpInfo.style.display = "none";
         addInfo.style.display = "block";
+		handleAuthClick();
     } else {
         add.classList.remove("clkdadd");
         add.classList.add("add");
@@ -334,6 +336,7 @@ function editEqp() {
             tagInfo.value = "";
             desInfo.value = "";
         }
+		handleAuthClick();
     }
 }
 // Add and Edit Buttons
@@ -376,7 +379,7 @@ function getEditData() {
     var tag = tagInfo.value;
     var des = desInfo.value;
     addname = name;
-    addsku = skuInfo.value;
+    addsku = skuInfo.innerHTML;
     adduri = uri;
     addqty = qty;
     addtag = tag;
@@ -388,11 +391,13 @@ function getEditData() {
     }
 }
 
+SCOPES = 'https://www.googleapis.com/auth/spreadsheets';
+
 function addEvent() {
     if (addMode) {
         getAddData();
         if (!getnull) {
-			// handleAuthClick();
+			handleAuthClick();
 			appendValue();
             document.getElementById("addname").value = "";
             document.getElementById("addsku").value = "";
@@ -412,6 +417,27 @@ function editEvent() {
     if (editMode) {
         getEditData();
         if (!getnull) {
+            handleAuthClick();
+			updateValue();
+			editEqp();
+			edit.classList.remove("clkdedit");
+			edit.classList.add("edit");
+			ttl.innerText = "No object selected!";
+			sku.innerHTML = "";
+			uri.innerHTML = "";
+			qty.innerHTML = "";
+			tag.innerHTML = "";
+			des.innerHTML = "";
+    	}
+    return false;
+	}
+}
+
+function deleteEvent() {
+    if (editMode) {
+        getEditData();
+        if (!getnull) {
+            handleAuthClick();
 			deleteValue();
 			editEqp();
 			edit.classList.remove("clkdedit");
@@ -427,66 +453,74 @@ function editEvent() {
 	}
 }
 
-SCOPES = 'https://www.googleapis.com/auth/spreadsheets';
+// Sign in the user upon button click.
+async function handleAuthClick(){
+    if (!gapi.client) return
+    tokenClient.callback = async (resp) => {
+		if (resp.error !== undefined) {
+			throw (resp);
+        }
+	};
+    if (gapi.client.getToken() === null) {
+        tokenClient.requestAccessToken({prompt: "consent"});
+    } else {
+        tokenClient.requestAccessToken({prompt: ""});
+    }
+}
 
-	  // Sign in the user upon button click.
-      async function handleAuthClick() {
-		gapiOnLoadHandler();
-		gisOnLoadHandler();
-        if (!gapi.client) {
-			return;
-		}
-      }
+function appendValue() {
+	var params = {
+		spreadsheetId: '1Lsk2p7Jz0Ul2nC2Y4gxID0TZXlIJPO0zi0HwbjfiDKo',
+		range: 'PublicStorage!A1:J',
+		valueInputOption: 'RAW',
+		insertDataOption: 'INSERT_ROWS'
+	};
+	var valueRangeBody = {
+		"values": [[addsku, addname, adduri, "", addqty, addtag, "", adddes, "", ""]]
+	};
+	var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
+	request.then(function(response) {
+		// console.log(response.result);
+	}, function(reason) {
+		console.error('error: ' + reason.result.error.message);
+	});
+}
 
-      function appendValue() {
-        var params = {
-          spreadsheetId: '1Lsk2p7Jz0Ul2nC2Y4gxID0TZXlIJPO0zi0HwbjfiDKo',
+function updateValue() {
+	var params = {
+		spreadsheetId: '1Lsk2p7Jz0Ul2nC2Y4gxID0TZXlIJPO0zi0HwbjfiDKo',
+		range: 'PublicStorage!A' + addsku + ':J' + addsku,
+		valueInputOption: 'RAW'
+	};
 
-          // The A1 notation of a range to search for a logical table of data.
-          // Values will be appended after the last row of the table.
-          range: 'PublicStorage!A1:J',  // TODO: Update placeholder value.
+	var valueRangeBody = {
+		"values": [[addsku, addname, adduri, "", addqty, addtag, "", adddes, "", ""]]
+	};
 
-          // How the input data should be interpreted.
-          valueInputOption: 'RAW',  // TODO: Update placeholder value.
-
-          // How the input data should be inserted.
-          insertDataOption: 'INSERT_ROWS',  // TODO: Update placeholder value.
-        };
-
-        var valueRangeBody = {
-          "values": [["100", "test"]]
-        };
-
-        var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
-        request.then(function(response) {
-          // TODO: Change code below to process the `response` object:
-          console.log(response.result);
-        }, function(reason) {
-          console.error('error: ' + reason.result.error.message);
-        });
-      }
+	var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+	request.then(function(response) {
+		// console.log(response.result);
+	}, function(reason) {
+		console.error('error: ' + reason.result.error.message);
+	});
+}
       
-      function deleteValue() {
-        var params = {
-          spreadsheetId: '1Lsk2p7Jz0Ul2nC2Y4gxID0TZXlIJPO0zi0HwbjfiDKo',
+function deleteValue() {
+	var params = {
+		spreadsheetId: '1Lsk2p7Jz0Ul2nC2Y4gxID0TZXlIJPO0zi0HwbjfiDKo',
+		range: 'PublicStorage!A' + addsku + ':J' + addsku
+	};
 
-          // The A1 notation of a range to search for a logical table of data.
-          // Values will be appended after the last row of the table.
-          range: 'PublicStorage!A63:J63',  // TODO: Update placeholder value.
+	var valueRangeBody = {
+	};
 
-        };
-
-        var valueRangeBody = {
-        };
-
-        var request = gapi.client.sheets.spreadsheets.values.clear(params, valueRangeBody);
-        request.then(function(response) {
-          // TODO: Change code below to process the `response` object:
-          console.log(response.result);
-        }, function(reason) {
-          console.error('error: ' + reason.result.error.message);
-        });
-      }
+	var request = gapi.client.sheets.spreadsheets.values.clear(params, valueRangeBody);
+	request.then(function(response) {
+		// console.log(response.result);
+	}, function(reason) {
+		console.error('error: ' + reason.result.error.message);
+	});
+}
 // Add and Edit
 
 
