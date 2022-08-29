@@ -42,6 +42,26 @@ option{
   bottom: 90%;
   left: 95%;
 }
+
+.urap-loader {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 3000px;
+  top: 1000px;
+  z-index:12;
+  border: 16px solid lavender;
+  border-top: 16px solid thistle;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: urap-spin 0.5s linear infinite;
+}
+
+@keyframes urap-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 /*Global*/
 
 
@@ -895,41 +915,13 @@ margin-left: -9.5%;
 
 
 
-/*Circle*/
-.circle {
+/*Circle (legacy)*/
+/* .circle {
   font-size: 10px;
   color: blue;
   height: 20px;
   width: 20px;
   background-color: red;
   border-radius: 50%;
-}
+} */
 /*Circle*/
-
-
-
-
-
-
-
-
-
-.urap-loader {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  left: 3000px;
-  top: 1000px;
-  z-index:12;
-  border: 16px solid lavender;
-  border-top: 16px solid thistle;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: urap-spin 0.5s linear infinite;
-}
-
-@keyframes urap-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
