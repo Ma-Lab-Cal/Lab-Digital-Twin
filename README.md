@@ -60,14 +60,27 @@ We decide to use 2D barcode, instead of 1D barcode, because they are more compac
 
 2. Run the .bat scripts in the `scripts` folder.
 
+## Repo Structure
+
+`/database` stores the environmental data.
+
+`/docs` stores the frontend webpage, which will be served by Github Page server.
+
+`/firmware` stores the Arduino codes.
+
+`/firmware/Raytac_PC_dongle_firmware` stores the Arduino code running on the BLE USB Dongle.
+
+`/firmware/sensor_node_firmware` stores the Arduino code running on the sensor nodes. Need to change device ID when flashing to different nodes.
+
+`/frontend` stores the previous webpage code, that is not used by current revision.
+
+`/hardware` stores hardware-related files.
+
+`/script` stores the entry script. When running the program, user only need to run scripts here.
+
+`/server` stores the backend Python server program, as well as some other funtional test codes.
+
 ## TODOs
 
 - [ ] Switch BLE nodes to WiFi nodes to improve stability and solve the dongle disconnect issue.
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+
