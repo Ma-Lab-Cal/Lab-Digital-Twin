@@ -1,7 +1,12 @@
 # Lab-Digital-Twin
+
 Inventory management and environment monitoring system for a STEM lab.
 
 ## System Overview
+
+## System Block Diagram
+
+![](block_diagram.png)
 
 ### Environment Monitoring
 
@@ -48,10 +53,6 @@ When taking parts from the public storage, users will need to log in the system 
 #### Barcodes
 
 We decide to use 2D barcode, instead of 1D barcode, because they are more compact, and easier to scan. Among the different 2D barcode encodings, the DataMatrix will have the smallest size when the content size is short. 
-
-## System Block Diagram
-
-![](block_diagram.png)
 
 ## Usage
 
