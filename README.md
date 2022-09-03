@@ -3,7 +3,7 @@ Inventory management and environment monitoring system for a STEM lab.
 
 ## System Overview
 
-## Environment Monitoring
+### Environment Monitoring
 
 While conducting physical experiments in a lab, there are multiple variables from the lab environment that can affect the data collected in the experiment, for example, temperature, humidity, mechanical vibration, magnetic field etc. It would be beneficial, therefore, to establish a system that can monitor and record the common environmental data from the lab and thus offer the possiblilty that, in the case of experiment data mismatch, researchers can go into the database and see the possible environmental factors that affects the experiment.
 
@@ -15,7 +15,9 @@ The PCB hardware design can be accessed [here](https://oshwhub.com/t-k-233/urap-
 
 More detailed description can be found [here](https://github.com/Ma-Lab-Cal/Lab-Digital-Twin/blob/main/firmware/README.md)
 
-## Inventory Management
+### Inventory Management
+
+#### Background
 
 Equipment management for labs or workshops has always been a difficult problem. We wish to build a system to help.
 
@@ -27,9 +29,11 @@ We want to tackle the following issues:
 
 - knowing if anyone is currently using the item, and if there's any spare ones to use
 
-Thus, we design the system as a checkout system. By default, all of the items purchased will be logged into the system and be assigned a specific location to store it, be it a drawer, a tote, a box, or some other physical containers. All of the default location of all the items will be considered the "Public Storage" location of that item, and can be displayed on the system webpage when searching, so that the user will know where to find it.
+Thus, we design the system as a checkout system. By default, all of the items purchased will be logged into the system and be assigned a specific location to store it, be it a drawer, a tote, a box, or some other physical containers. All of the default location of all the items will be considered the "Public Storage" location of that item, and can be displayed on the system webpage when searching, so that the user will know where to find it. Additionally, we will put 2D barcodes on most of the items for the system to keep track of. 
 
-Moreover, we divide the parts into three categories, I, II, and III.
+#### Categories
+
+We divide the parts into three categories, I, II, and III.
 
 Category III are the most inexpensive and most common parts. Examples of items in this category would be screws, USB Type A micro to USB Type A cables, or letter-sized printing papers. Due to the large quantity, it is not useful nor easy to keep track of the number of items in this category. And thus, we do not need users to check in / out when using these parts.
 
@@ -37,9 +41,17 @@ Category II are the more expensive and rare parts. Majority of the item belongs 
 
 Category I are the most unique parts. There could be only 1 or 2 of that item in the entire lab, and thus need to be treated with care. And also they are often very expensive.
 
+#### User Operation
+
 When taking parts from the public storage, users will need to log in the system (probably by scanning the barcode on their student ID), search for the desired parts, and go to the physical public storage location to take the parts. When taking, the user will need to scan the part ID to indicate they are taking away the parts, and scan more, if taking multiple ones. The system then can automatically track the change, and assign that number of parts under this user, indicating that he/she is using this.
 
+#### Barcodes
 
+We decide to use 2D barcode, instead of 1D barcode, because they are more compact, and easier to scan. Among the different 2D barcode encodings, the DataMatrix will have the smallest size when the content size is short. 
+
+## System Block Diagram
+
+![](block_diagram.png)
 
 ## Usage
 
