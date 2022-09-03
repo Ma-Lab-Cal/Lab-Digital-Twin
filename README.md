@@ -17,6 +17,28 @@ More detailed description can be found [here](https://github.com/Ma-Lab-Cal/Lab-
 
 ## Inventory Management
 
+Equipment management for labs or workshops has always been a difficult problem. We wish to build a system to help.
+
+We want to tackle the following issues:
+
+- knowing if an item exist in the lab, or need to be bought
+
+- locating the target item
+
+- knowing if anyone is currently using the item, and if there's any spare ones to use
+
+Thus, we design the system as a checkout system. By default, all of the items purchased will be logged into the system and be assigned a specific location to store it, be it a drawer, a tote, a box, or some other physical containers. All of the default location of all the items will be considered the "Public Storage" location of that item, and can be displayed on the system webpage when searching, so that the user will know where to find it.
+
+Moreover, we divide the parts into three categories, I, II, and III.
+
+Category III are the most inexpensive and most common parts. Examples of items in this category would be screws, USB Type A micro to USB Type A cables, or letter-sized printing papers. Due to the large quantity, it is not useful nor easy to keep track of the number of items in this category. And thus, we do not need users to check in / out when using these parts.
+
+Category II are the more expensive and rare parts. Majority of the item belongs to this category. 
+
+Category I are the most unique parts. There could be only 1 or 2 of that item in the entire lab, and thus need to be treated with care. And also they are often very expensive.
+
+When taking parts from the public storage, users will need to log in the system (probably by scanning the barcode on their student ID), search for the desired parts, and go to the physical public storage location to take the parts. When taking, the user will need to scan the part ID to indicate they are taking away the parts, and scan more, if taking multiple ones. The system then can automatically track the change, and assign that number of parts under this user, indicating that he/she is using this.
+
 
 
 ## Usage
